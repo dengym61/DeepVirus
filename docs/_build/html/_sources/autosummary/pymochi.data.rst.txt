@@ -1,0 +1,30 @@
+﻿deepvirus.data
+============
+
+.. automodule:: deepvirus.data
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      FitnessData
+      VirusData
+   
+   
+
+   
+   
+   
+
+
+

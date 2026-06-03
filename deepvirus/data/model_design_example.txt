@@ -1,0 +1,3 @@
+phenotype	transformation	trait	file
+Abundance	TwoStateFractionFolded	Folding	fitness_abundance.txt
+Binding	ThreeStateFractionBound	Folding,Binding	fitness_binding.txt
