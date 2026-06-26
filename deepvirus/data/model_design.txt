@@ -1,2 +1,0 @@
-phenotype	transformation	trait	file
-Binding	SumOfSigmoids	["Binding"]	/home/DYM/deepvirus/deepvirus/data/VIRUS_input_format_first_50.txt

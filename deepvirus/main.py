@@ -81,10 +81,9 @@ def main(
 
     #Load model design
     if demo_mode:
-        args.model_design = pd.read_csv(Path(__file__).parent / "data/model_design.txt", sep = "\t", index_col = False)
+        args.model_design = pd.read_csv(Path(__file__).parent.parent / "data/model_design.txt", sep = "\t", index_col = False)
         args.model_design['file'] = [
-            str(Path(__file__).parent / "data/fitness_abundance.txt"),
-            str(Path(__file__).parent / "data/fitness_binding.txt")]
+                      str(Path(__file__).parent.parent / "data/VIRUS_input_format.txt")]
         args.downsample_observations = 0.1
         args.project_name = "virus_project_demo"
         args.k_folds = 5

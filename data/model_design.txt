@@ -1,0 +1,2 @@
+phenotype	transformation	trait	file
+Binding	SumOfSigmoids	["Binding"]	./data/VIRUS_input_format.txt
