@@ -1,97 +1,244 @@
-========================================================================
-                              DeepVirus
-========================================================================
-
-DeepVirus is a deep learning-based model for virus-related prediction tasks.
-
-OVERVIEW
-------------------------------------------------------------------------
-This repository provides the source code, environment configuration, and 
-examples for running DeepVirus.
-
-
-REQUIREMENTS
-------------------------------------------------------------------------
-The project was tested with the following environment:
-- Python 3.9.9
-- PyTorch 1.10.1
-- NumPy 1.21.2
-- pandas 1.4.2
-- scikit-learn 1.0.2
-- SciPy 1.8.0
-- Matplotlib 3.5.1
-- Seaborn 0.11.2
-- pyreadr 0.4.4
-
-
-INSTALLATION
-------------------------------------------------------------------------
-We recommend using Conda to create the environment and manage dependencies.
-
-1. Clone the repository
-   git clone https://github.com/your-username/DeepVirus.git
-   cd DeepVirus
-
-2. Create the virtual environment
-   Create the Conda environment using the provided YAML file:
-   conda env create -f deepvirus.yaml
-
-3. Activate the environment
-   Once the environment is created, activate it using the following command:
-   conda activate deepvirus
-
-
-DATA PREPARATION
-------------------------------------------------------------------------
-Please prepare the input data in the required format before running the 
-model. Place your dataset under the "data/" directory.
-
-Each input file should contain the following fields:
-
-Column      | Description
---------------------------------------------------
-aa_seq      | DMS sequence
-Nham_aa     | WT (wild type)
-fitness     |Variance
+\# DeepVirus 🦠
 
 
 
-USAGE
-------------------------------------------------------------------------
+\[!\[Python 3.9](https://img.shields.io/badge/python-3.9.9-blue.svg)](https://www.python.org/)
 
-[ Demo VIRUS ]
-Run the demo to ensure that you have a working VIRUS installation:
-   python bin/demo_virus.py
+\[!\[PyTorch 1.10.1](https://img.shields.io/badge/PyTorch-1.10.1-ee4c2c.svg)](https://pytorch.org/)
 
-[ VIRUS Command Line Tool ]
-Replace MY_MODEL with the path to your model design file. 
-   python bin/run_virus.py --model_design ./data/model_design.txt
-
-Get help with additional command line parameters:
-   python bin/run_virus.py -h
-
-[ Model Design File ]
-VIRUS requires a plain text model design file containing a table 
-describing the measured phenotypes and how they relate to the underlying 
-additive (biophysical) traits. The table should have the following 4 
-tab-separated columns:
-
-* trait          : One or more additive trait names.
-* transformation : The shape of the global epistatic trend 
-                   (Supported: Linear / ReLU / SiLU / Sigmoid / 
-                   SumOfSigmoids / TwoStateFractionFolded / 
-                   ThreeStateFractionBound).
-* phenotype      : e.g., Binding, Cell entry, Antibody escape.
-* file           : Path to the input data file.
+\[!\[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-LICENSE
-------------------------------------------------------------------------
-This project is released under the MIT License. 
-See the LICENSE file for more details.
+
+DeepVirus is a deep learning-based framework designed for virus-related prediction tasks, enabling efficient mapping of sequence-to-phenotype landscapes.
 
 
-BUGS AND FEEDBACK
-------------------------------------------------------------------------
-You may submit a bug report on GitHub as an issue or you can send an 
-email to: dengym61@163.com
+
+\---
+
+
+
+\## 📌 Overview
+
+
+
+This repository provides the official source code, environment configuration, and examples for running DeepVirus. The model helps capture global epistatic trends and biophysical traits from deep mutational scanning (DMS) datasets.
+
+
+
+\---
+
+
+
+\## 💻 Requirements
+
+
+
+The project has been tested and verified under the following environment:
+
+
+
+\* \*\*Python\*\* 3.9.9
+
+\* \*\*PyTorch\*\* 1.10.1
+
+\* \*\*NumPy\*\* 1.21.2
+
+\* \*\*pandas\*\* 1.4.2
+
+\* \*\*scikit-learn\*\* 1.0.2
+
+\* \*\*SciPy\*\* 1.8.0
+
+\* \*\*Matplotlib\*\* 3.5.1
+
+\* \*\*Seaborn\*\* 0.11.2
+
+\* \*\*pyreadr\*\* 0.4.4
+
+
+
+\---
+
+
+
+\## ⚙️ Installation
+
+
+
+We highly recommend using \[Conda](https://docs.conda.io/en/latest/) to manage your virtual environments.
+
+
+
+\### 1. Clone the repository
+
+```bash
+
+git clone https://github.com/your-username/DeepVirus.git
+
+cd DeepVirus
+
+```
+
+
+
+\### 2. Create the virtual environment
+
+Create an isolated environment using the provided `deepvirus.yaml` file:
+
+```bash
+
+conda env create -f deepvirus.yaml
+
+```
+
+
+
+\### 3. Activate the environment
+
+Once the installation is complete, activate the environment with:
+
+```bash
+
+conda activate deepvirus
+
+```
+
+
+
+\---
+
+
+
+\## 📊 Data Preparation
+
+
+
+Before running the model, please format your input datasets as specified below. 
+
+
+
+Each input file should contain at least the following fields:
+
+
+
+| Column | Description |
+
+| :--- | :--- |
+
+| `aa\_seq` | DMS sequence (Amino acid sequence) |
+
+| `Nham\_aa` | Number of amino acid mutations relative to WT (Wild Type) |
+
+| `fitness\_sigma` | Fitness variance / standard deviation |
+
+
+
+> 📂 \*\*Note:\*\* Please place all your processed datasets under the `data/` directory.
+
+
+
+\---
+
+
+
+\## 🚀 Usage
+
+
+
+\### 1. Running the Demo
+
+Verify your installation by running the provided demo script:
+
+```bash
+
+python demo\_virus.py
+
+```
+
+
+
+\### 2. Running VIRUS Command Line Tool
+
+To run your customized pipeline, execute the following command (replace `./data/model\_design.txt` with the path to your design file):
+
+```bash
+
+python run\_virus.py --model\_design ./data/model\_design.txt
+
+```
+
+
+
+Get help and explore additional command-line parameters:
+
+```bash
+
+python run\_virus.py -h
+
+```
+
+
+
+\---
+
+
+
+\## 📝 Model Design File Configuration
+
+
+
+VIRUS requires a plain-text, \*\*tab-separated (TSV)\*\* model design file describing the measured phenotypes and how they relate to the underlying additive (biophysical) traits. 
+
+
+
+The design file must contain the following 4 columns:
+
+
+
+| Column | Description | Example / Supported Values |
+
+| :--- | :--- | :--- |
+
+| \*\*trait\*\* | One or more additive trait names | `binding\_trait`, `expression\_trait` |
+
+| \*\*transformation\*\* | The shape of the global epistatic trend | `Linear`, `ReLU`, `SiLU`, `Sigmoid`, `SumOfSigmoids`, `TwoStateFractionFolded`, `ThreeStateFractionBound` |
+
+| \*\*phenotype\*\* | The observed phenotype | `Binding`, `Cell entry`, `Antibody escape` |
+
+| \*\*file\*\* | Path to the corresponding input dataset | `data/your\_input\_data.csv` |
+
+
+
+\*(See `./data/model\_design.txt` for a concrete example).\*
+
+
+
+\---
+
+
+
+\## 📄 License
+
+
+
+This project is licensed under the \*\*MIT License\*\*. See the \[LICENSE](LICENSE) file for more details.
+
+
+
+\---
+
+
+
+\## 🐛 Bugs and Feedback
+
+
+
+If you encounter any issues or have feedback:
+
+\* Feel free to open an \*\*\[Issue](https://github.com/your-username/DeepVirus/issues)\*\* on GitHub.
+
+\* Alternatively, you can contact the authors directly via email at: 📧 \[dengym61@163.com](mailto:dengym61@163.com)
+
+
+
