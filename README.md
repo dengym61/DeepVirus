@@ -99,7 +99,7 @@ The design file must contain the following 4 columns:
 
 | Column | Description | Example / Supported Values |
 | :--- | :--- | :--- |
-| **trait** | One or more additive trait names | `binding_trait`, `expression_trait` |
+| **trait** | One or more additive trait names | `binding_trait`, `cell entry_trait` |
 | **transformation** | The shape of the global epistatic trend | `Linear`, `ReLU`, `SiLU`, `Sigmoid`, `SumOfSigmoids`, `TwoStateFractionFolded`, `ThreeStateFractionBound` |
 | **phenotype** | The observed phenotype | `Binding`, `Cell entry`, `Antibody escape` |
 | **file** | Path to the corresponding input dataset | `data/your_input_data.csv` |
